@@ -1,5 +1,4 @@
 import React from "react";
-// import { data } from "../../Resources/StaticData/data";
 import Card from "../Card/Card";
 import "./List.scss";
 

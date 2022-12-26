@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 const Category = () => {
 
   const categoryId = parseInt(useParams().id)
-  // const [categories, setCategories] = useState([]);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState(null);
 
