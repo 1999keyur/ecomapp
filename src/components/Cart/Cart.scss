@@ -1,4 +1,4 @@
-.cart {
+.cart{
   position: absolute;
   top: 100px;
   right: 50px;
@@ -29,14 +29,14 @@
       align-items: flex-start;
       flex-direction: column;
     }
-    .delete {
-      color: red;
-    }
-    .delete:hover {
-      box-shadow: 10px 12px 11px 2px rgba(217, 55, 55, 0.75);
-      -webkit-box-shadow: 10px 12px 11px 2px rgba(217, 55, 55, 0.75);
-      -moz-box-shadow: 10px 12px 11px 2px rgba(217, 55, 55, 0.75);
-    }
+    // .delete {
+      
+    // }
+    // .delete:hover {
+    //   box-shadow: 10px 12px 11px 2px rgba(217, 55, 55, 0.75);
+    //   -webkit-box-shadow: 10px 12px 11px 2px rgba(217, 55, 55, 0.75);
+    //   -moz-box-shadow: 10px 12px 11px 2px rgba(217, 55, 55, 0.75);
+    // }
 
     .price {
       color: #2879fe;

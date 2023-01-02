@@ -5,43 +5,52 @@ import "./Product.scss";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BalanceIcon from "@mui/icons-material/Balance";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartReducer";
 
 const Product = () => {
-  const [selectedImg, setselectedImg] = useState(data[0].img);
+  const productId = useParams().id ;
+
+  const [selectedItem, setselectedItem] = useState(
+    data[productId-1].images[0].img
+  );
   const [quantity, setquantity] = useState(0);
-  // let mainImg;
+  // const [addCartItem, setAddCartItem] = useState(null);
+  const dispatch = useDispatch();
+
+  let slectedItemId = data[productId-1];
   // const dataLength = data.length
+  // console.log(data[productId])
+  // console.log(productId)
+  // useEffectb(() => {
+  //   localStorage.setItem("ItemId",addCartItem)
+  // }, [addCartItem])
+
   return (
     <div className="product">
       <div className="left">
         <div className="images">
-          {data?.map((item) => (
+          {slectedItemId.images.map((item) => (
             <img
               src={item.img}
               alt=""
-              onClick={(e) => setselectedImg(item.img)}
+              onClick={(e) => setselectedItem(item.img)}
               key={item.id}
             />
           ))}
-          {/* {mainImg = data.findIndex(obj => obj.id === selectedImg)} */}
+          {/* {slectedItemId = data.findIndex(obj => obj.id === selectedItem)} */}
+          {/* {mainImg = data.findIndex(item => item.id === selectedImg)} */}
         </div>
         <div className="mainImg">
-          {/* {mainImg>=0 && <img src={data[mainImg].img} alt="" />} */}
-          <img src={selectedImg} alt="" />
+          <img src={selectedItem} alt="" />
         </div>
       </div>
       <div className="right">
-        <div className="title">Title</div>
-        <div className="price">$199</div>
+        <div className="title">{data[productId-1].title}</div>
+        <div className="price">${data[productId-1].price}</div>
         <div className="description">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eius,
-            suscipit commodi quod at assumenda magnam esse ad eveniet inventore
-            distinctio, delectus, laudantium necessitatibus fuga! Itaque nihil
-            deserunt ut, sit delectus error voluptatem nemo asperiores! Totam
-            nesciunt ducimus exercitationem amet quaerat repudiandae, ipsam quas
-            facilis dolor laborum quis iusto alias?
-          </p>
+          <p>{data[productId-1].desc}</p>
         </div>
 
         <div className="quantity">
@@ -56,18 +65,28 @@ const Product = () => {
 
         <div className="buttons">
           <div className="addCart">
-            <button className="cart">
+            <button
+              className="addcarticon"
+              onClick={() => {
+                dispatch(
+                  addToCart({
+                    itemId: productId,
+                    quantity: quantity,
+                  })
+                );
+              }}
+            >
               <AddShoppingCartIcon /> Add to cart
             </button>
           </div>
           <div className="otherButton">
             <div className="links">
               <FavoriteBorderOutlinedIcon /> Add to wish list
-            </div >
+            </div>
 
-            <div className="links" >
+            <div className="links">
               <BalanceIcon /> Add to compare
-            </div >
+            </div>
           </div>
         </div>
       </div>

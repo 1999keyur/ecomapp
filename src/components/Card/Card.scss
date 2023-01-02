@@ -17,7 +17,7 @@
         position: relative;
 
         &:hover{
-            .secondImg{
+            .Img2{
                 z-index: 2;
                 // transition: 
             }
@@ -28,7 +28,7 @@
             object-fit: cover;
             position: absolute;
         }
-        .firstImg{
+        .Img1{
             z-index: 1;
         }
         span{

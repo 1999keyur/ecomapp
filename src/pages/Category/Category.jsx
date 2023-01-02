@@ -21,11 +21,11 @@ const Category = () => {
           </div>
           <div className="inputItem">
             <input type="checkbox" id="2" value={2} />
-            <label htmlFor="1">Shirts</label>
+            <label htmlFor="2">Shirts</label>
           </div>
           <div className="inputItem">
             <input type="checkbox" id="3" value={3} />
-            <label htmlFor="1">Accessories</label>
+            <label htmlFor="3">Accessories</label>
           </div>
         </div>
         <div className="filterItem">

@@ -13,7 +13,7 @@ const Layout = () => {
       <Outlet />
       <Footer />
     </div>
-  );
+  );  
 };
 const router = createBrowserRouter([
   {

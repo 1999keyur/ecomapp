@@ -8,9 +8,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
 import "./Navbar.scss";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-
+  const cartQuantity = useSelector((state)=>state.cart.products.length)
   const [cart, setCart] = useState(false);
   return (
     <div className="navbar">
@@ -70,7 +71,7 @@ const Navbar = () => {
               <FavoriteBorderIcon />
               <div className="carticon" onClick={()=>setCart(!cart)}>
                 <ShoppingCartOutlinedIcon />
-                <span>0</span>
+                <span>{cartQuantity}</span>
               </div>
             </div>
           </div>
